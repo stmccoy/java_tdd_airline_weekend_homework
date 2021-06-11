@@ -115,9 +115,11 @@ public class FlightTest {
     @Test
     public void canBookPassengerOntoPlane(){
         Passenger passengerOne = new Passenger("Bobby");
+        Passenger passengerTwo = new Passenger("Clive");
         flight.setPlane(plane);
         flight.bookPassenger(passengerOne);
-        assertEquals(1, flight.getNumberOfPassengers());
+        flight.bookPassenger(passengerTwo);
+        assertEquals(2, flight.getNumberOfPassengers());
     }
 
 }

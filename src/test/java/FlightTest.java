@@ -98,4 +98,10 @@ public class FlightTest {
         assertEquals(departureTime, flight.getDepartureTime());
     }
 
+    @Test
+    public void canGetNumberOfSeats(){
+        flight.setPlane(plane);
+        assertEquals(300, flight.numberOfSeats());
+    }
+
 }

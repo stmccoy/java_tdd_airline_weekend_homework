@@ -92,4 +92,8 @@ public class Flight {
     public void setDepartureTime(String departureTime) {
         this.departureTime = departureTime;
     }
+
+    public int numberOfSeats(){
+        return this.plane.getPlaneType().getCapacity();
+    }
 }

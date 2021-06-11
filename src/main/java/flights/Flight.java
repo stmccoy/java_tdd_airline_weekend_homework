@@ -19,9 +19,9 @@ public class Flight {
     private String departureTime;
 
     public Flight(){
-        this.pilot = null;
-        this.cabinCrewMembers = null;
-        this.passengers = null;
+        this.pilot = new ArrayList<>();
+        this.cabinCrewMembers = new ArrayList<>();
+        this.passengers = new ArrayList<>();
         this.plane = null;
         this.flightNumber = null;
         this.destination = null;
@@ -96,4 +96,15 @@ public class Flight {
     public int numberOfSeats(){
         return this.plane.getPlaneType().getCapacity();
     }
+
+    public void bookPassenger(Passenger passenger){
+        if(this.numberOfSeats() != this.getNumberOfPassengers()){
+            this.passengers.add(passenger);
+        }
+    }
+
+    public int getNumberOfPassengers(){
+        return this.passengers.size();
+    }
+
 }

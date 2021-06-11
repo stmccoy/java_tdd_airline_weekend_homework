@@ -104,4 +104,20 @@ public class FlightTest {
         assertEquals(300, flight.numberOfSeats());
     }
 
+    @Test
+    public void canGetNumberOfPassengers(){
+        Passenger passengerOne = new Passenger("Bobby");
+        passengers.add(passengerOne);
+        flight.setPassengers(passengers);
+        assertEquals(1, flight.getNumberOfPassengers());
+    }
+
+    @Test
+    public void canBookPassengerOntoPlane(){
+        Passenger passengerOne = new Passenger("Bobby");
+        flight.setPlane(plane);
+        flight.bookPassenger(passengerOne);
+        assertEquals(1, flight.getNumberOfPassengers());
+    }
+
 }

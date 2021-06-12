@@ -8,6 +8,7 @@ import people.staff.CabinCrewMember;
 import people.staff.Pilot;
 import people.staff.Ranks;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -23,7 +24,7 @@ public class FlightTest {
     private String flightNumber;
     private String destination;
     private String departureAirport;
-    private String departureTime;
+    private LocalTime departureTime;
 
 
     @Before
@@ -36,7 +37,7 @@ public class FlightTest {
         flightNumber = "137SQT";
         destination = "Stockport";
         departureAirport = "LAX";
-        departureTime = "17:00";
+        departureTime = LocalTime.of(17,00);
     }
 
     @Test

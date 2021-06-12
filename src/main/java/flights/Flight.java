@@ -5,6 +5,7 @@ import people.customer.Passenger;
 import people.staff.CabinCrewMember;
 import people.staff.Pilot;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -17,7 +18,7 @@ public class Flight {
     private String flightNumber;
     private String destination;
     private String departureAirport;
-    private String departureTime;
+    private LocalTime departureTime;
     private ArrayList<Integer> usedSeats;
 
     public Flight(){
@@ -84,11 +85,11 @@ public class Flight {
         this.departureAirport = departureAirport;
     }
 
-    public String getDepartureTime() {
+    public LocalTime getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(String departureTime) {
+    public void setDepartureTime(LocalTime departureTime) {
         this.departureTime = departureTime;
     }
 

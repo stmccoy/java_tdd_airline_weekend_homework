@@ -52,6 +52,7 @@ public class FlightManagerTest {
         assertEquals(50, flightManager.howMuchBaggageWeightHasBeenBooked(flight.getPassengers(), 5));
     }
 
+    @Test
     public void FlightManagerCanCheckHowMuchWeightIsLeftAvailableOnePlane(){
         Passenger passenger = new Passenger("Clive");
         passenger.setNumberOfBags(3);

@@ -11,6 +11,7 @@ import people.staff.Ranks;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class FlightTest {
 
@@ -110,6 +111,35 @@ public class FlightTest {
         flight.bookPassenger(passengerOne);
         flight.bookPassenger(passengerTwo);
         assertEquals(2, flight.getNumberOfPassengers());
+    }
+
+    @Test
+    public void bookedPassengersHaveAFlight(){
+        Passenger passengerOne = new Passenger("Bobby");
+        flight.setPlane(plane);
+        flight.setFlightNumber("A122");
+        flight.bookPassenger(passengerOne);
+        assertEquals("A122", passengerOne.getFlight());
+    }
+
+    @Test
+    public void bookedPassengerHasSeat(){
+        Passenger passengerOne = new Passenger("Bobby");
+        flight.setPlane(plane);
+        flight.setFlightNumber("A122");
+        flight.bookPassenger(passengerOne);
+        assertNotEquals(0, passengerOne.getSeatNumber());
+    }
+
+    @Test
+    public void bookedPassengersHaveDifferentSeats(){
+        Passenger passengerOne = new Passenger("Bobby");
+        Passenger passengerTwo = new Passenger("Clive");
+        flight.setPlane(plane);
+        flight.setFlightNumber("A122");
+        flight.bookPassenger(passengerOne);
+        flight.bookPassenger(passengerTwo);
+        assertNotEquals(passengerTwo.getSeatNumber(), passengerOne.getSeatNumber());
     }
 
 }

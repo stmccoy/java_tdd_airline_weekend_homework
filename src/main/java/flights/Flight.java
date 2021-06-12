@@ -6,6 +6,7 @@ import people.staff.CabinCrewMember;
 import people.staff.Pilot;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Flight {
 
@@ -17,6 +18,7 @@ public class Flight {
     private String destination;
     private String departureAirport;
     private String departureTime;
+    private ArrayList<Integer> usedSeats;
 
     public Flight(){
         this.pilot = new ArrayList<>();
@@ -27,6 +29,7 @@ public class Flight {
         this.destination = null;
         this.departureAirport = null;
         this.departureTime = null;
+        this.usedSeats = new ArrayList<>();
     }
 
     public ArrayList<Pilot> getPilot() {
@@ -95,7 +98,16 @@ public class Flight {
 
     public void bookPassenger(Passenger passenger){
         if(this.numberOfSeats() != this.getNumberOfPassengers()){
-            this.passengers.add(passenger);
+            while(true){
+                int seatNumber = ThreadLocalRandom.current().nextInt(1, plane.getPlaneType().getCapacity() + 1);
+                if(!this.usedSeats.contains(seatNumber)){
+                    passenger.setSeatNumber(seatNumber);
+                    passenger.setFlight(this.flightNumber);
+                    this.usedSeats.add(seatNumber);
+                    this.passengers.add(passenger);
+                    break;
+                }
+            }
         }
     }
 

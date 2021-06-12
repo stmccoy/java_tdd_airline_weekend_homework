@@ -59,16 +59,6 @@ public class FlightTest {
     }
 
     @Test
-    public void canSetPassengers(){
-        Passenger passengerOne = new Passenger("Bobby");
-        Passenger passengerTwo = new Passenger("Jeremy");
-        passengers.add(passengerOne);
-        passengers.add(passengerTwo);
-        flight.setPassengers(passengers);
-        assertEquals(passengers, flight.getPassengers());
-    }
-
-    @Test
     public void canSetPlane(){
         flight.setPlane(plane);
         assertEquals(plane, flight.getPlane());
@@ -107,8 +97,8 @@ public class FlightTest {
     @Test
     public void canGetNumberOfPassengers(){
         Passenger passengerOne = new Passenger("Bobby");
-        passengers.add(passengerOne);
-        flight.setPassengers(passengers);
+        flight.setPlane(plane);
+        flight.bookPassenger(passengerOne);
         assertEquals(1, flight.getNumberOfPassengers());
     }
 
